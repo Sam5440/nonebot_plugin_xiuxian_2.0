@@ -419,7 +419,7 @@ async def battle_(bot: Bot, event: GroupMessageEvent, args: Message = CommandArg
         boss_integral = int((boss_old_hp / boss_all_hp) * 30)
         if boss_integral < 5:  # 摸一下不给
             boss_integral = 0
-        if user_info.root == "器师":
+        if user_info.root == "器师" and user_rank > boss_rank:
             boss_integral = int(boss_integral * (1 + (user_rank - boss_rank)))
             more_msg = f"道友低boss境界{user_rank - boss_rank}层，获得{int(50 * (user_rank - boss_rank))}%积分加成！"
         else:
